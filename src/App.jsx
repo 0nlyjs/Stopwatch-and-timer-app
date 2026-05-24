@@ -132,12 +132,12 @@ function Stopwatch() {
       </div>
 
       {/* Controls */}
-      <div className="flex gap-3 flex-wrap justify-center">
+      <div className="flex gap-3 flex-wrap justify-center my-4">
         {!running ? (
           <button
             id="sw-start"
-            className="btn-2d px-6 py-3 text-sm"
-            style={{ background: '#B3F0D9', minWidth: 100 }}
+            className="btn-2d px-8 py-4 text-sm"
+            style={{ background: '#B3F0D9', minWidth: 120, marginTop: 4, marginBottom: 4 }}
             onClick={start}
           >
             ▶ Start
@@ -145,8 +145,8 @@ function Stopwatch() {
         ) : (
           <button
             id="sw-pause"
-            className="btn-2d px-6 py-3 text-sm"
-            style={{ background: '#FFF0B3', minWidth: 100 }}
+            className="btn-2d px-8 py-4 text-sm"
+            style={{ background: '#FFF0B3', minWidth: 120, marginTop: 4, marginBottom: 4 }}
             onClick={pause}
           >
             ⏸ Pause
@@ -154,8 +154,8 @@ function Stopwatch() {
         )}
         <button
           id="sw-lap"
-          className="btn-2d px-6 py-3 text-sm"
-          style={{ background: '#B3D9FF', minWidth: 100 }}
+          className="btn-2d px-8 py-4 text-sm"
+          style={{ background: '#B3D9FF', minWidth: 120, marginTop: 4, marginBottom: 4 }}
           onClick={lap}
           disabled={!running}
         >
@@ -163,8 +163,8 @@ function Stopwatch() {
         </button>
         <button
           id="sw-reset"
-          className="btn-2d px-6 py-3 text-sm"
-          style={{ background: '#FFD9B3', minWidth: 100 }}
+          className="btn-2d px-8 py-4 text-sm"
+          style={{ background: '#FFD9B3', minWidth: 120, marginTop: 4, marginBottom: 4 }}
           onClick={reset}
           disabled={elapsed === 0}
         >
@@ -340,13 +340,13 @@ function Timer() {
 
       {/* Presets */}
       {!running && remaining === 0 && (
-        <div className="flex gap-2 flex-wrap justify-center">
+        <div className="flex gap-2 flex-wrap justify-center my-3">
           {PRESETS.map(p => (
             <button
               key={p.label}
               id={`preset-${p.label}`}
-              className="btn-2d px-4 py-2 text-xs"
-              style={{ background: '#FFF0B3' }}
+              className="btn-2d px-6 py-3 text-xs"
+              style={{ background: '#FFF0B3', marginTop: 4, marginBottom: 4 }}
               onClick={() => applyPreset(p.ms)}
             >
               {p.label}
@@ -408,12 +408,12 @@ function Timer() {
       )}
 
       {/* Controls */}
-      <div className="flex gap-3 flex-wrap justify-center">
+      <div className="flex gap-3 flex-wrap justify-center my-4">
         {!running ? (
           <button
             id="timer-start"
-            className="btn-2d px-6 py-3 text-sm"
-            style={{ background: '#B3F0D9', minWidth: 100 }}
+            className="btn-2d px-8 py-4 text-sm"
+            style={{ background: '#B3F0D9', minWidth: 120, marginTop: 4, marginBottom: 4 }}
             onClick={startTimer}
             disabled={displayMs <= 0 && !done}
           >
@@ -422,8 +422,8 @@ function Timer() {
         ) : (
           <button
             id="timer-pause"
-            className="btn-2d px-6 py-3 text-sm"
-            style={{ background: '#FFF0B3', minWidth: 100 }}
+            className="btn-2d px-8 py-4 text-sm"
+            style={{ background: '#FFF0B3', minWidth: 120, marginTop: 4, marginBottom: 4 }}
             onClick={pauseTimer}
           >
             ⏸ Pause
@@ -431,8 +431,8 @@ function Timer() {
         )}
         <button
           id="timer-reset"
-          className="btn-2d px-6 py-3 text-sm"
-          style={{ background: '#FFD9B3', minWidth: 100 }}
+          className="btn-2d px-8 py-4 text-sm"
+          style={{ background: '#FFD9B3', minWidth: 120, marginTop: 4, marginBottom: 4 }}
           onClick={resetTimer}
           disabled={remaining === 0 && !running && !done}
         >
@@ -518,10 +518,7 @@ export default function App() {
           {tab === 'stopwatch' ? <Stopwatch /> : <Timer />}
         </div>
 
-        {/* Footer */}
-        <p style={{ marginTop: 32, fontWeight: 600, color: '#bbb', fontSize: '0.8rem' }}>
-          Made with 🎨 pastel love
-        </p>
+      
       </div>
     </div>
   )
